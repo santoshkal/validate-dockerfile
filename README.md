@@ -8,4 +8,5 @@ This **WIP project** focuses on automating the validation process of a Dockerfil
 - `dockerfile-schema.cue` contains a Cue definition of a Dockerfile
 - `test-dockerfile.json` contains a sample multi-stage Dockerfile in JSON format 
 - [OPA Playground](https://play.openpolicyagent.org/p/OSMY88VouF) test link for the same policies
+- `validate-dockerfile.rego` and `validate-input-dockerfile.rego` are validation policies written in Rego.
 
