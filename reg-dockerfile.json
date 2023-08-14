@@ -1,0 +1,95 @@
+[
+  [
+    {
+      "Cmd": "from",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "golang:1.19-alpine"
+      ]
+    },
+    {
+      "Cmd": "workdir",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "/home"
+      ]
+    },
+    {
+      "Cmd": "run",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "apk add --no-cache git"
+      ]
+    },
+    {
+      "Cmd": "copy",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "./pkg",
+        "."
+      ]
+    },
+    {
+      "Cmd": "run",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "go mod download"
+      ]
+    },
+    {
+      "Cmd": "run",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "go build -o bookstore -ldflags \"-X main.commitSHA=$(git rev-parse HEAD --short)\""
+      ]
+    },
+    {
+      "Cmd": "run",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "git --version"
+      ]
+    },
+    {
+      "Cmd": "expose",
+      "Flags": [],
+      "JSON": false,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "8080"
+      ]
+    },
+    {
+      "Cmd": "cmd",
+      "Flags": [],
+      "JSON": true,
+      "Stage": 0,
+      "SubCmd": "",
+      "Value": [
+        "./bookstore"
+      ]
+    }
+  ]
+]
